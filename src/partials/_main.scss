@@ -1,0 +1,36 @@
+main {
+  height: 100%;
+  background-color: rgb(37, 37, 38);
+}
+
+.card-ctr {
+  width: 75%;
+  margin: auto;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(219, 233, 230);
+  width: 320px;
+  .poster {
+    height: 300px;
+  }
+  .details {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    .title {
+      min-height: 60px;
+    }
+  }
+}
