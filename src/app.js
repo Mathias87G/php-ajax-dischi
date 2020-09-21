@@ -1,5 +1,6 @@
 let $ = require('jquery');
 
+
 $(document).ready(function(){
   printAuthors();
   $.ajax(
@@ -32,13 +33,22 @@ function printData(data){
   }
 }
 
+// funzione per stampare options
 function printAuthors(){
   $.ajax(
     {
       'url': 'http://localhost/php-ajax-dischi/dischi-author-filtered.php',
       'method': 'GET',
       'success': function(risposta){
-        console.log(risposta);
+        var source = $("#author-template").html();
+        var template = Handlebars.compile(source);
+        for (var i = 0; i < risposta.length; i++) {
+          var context = {
+            author : risposta[i]
+          };
+          var html = template(context);
+          $('.authors-list').append(html);
+        }
       },
       'error': function(){
         alert('Errore');

@@ -16,9 +16,12 @@
     <header>
       <nav>
         <img id="logo" src="img/logo.png" alt="spotify logo">
-        <select class="authors-list">
-          <option value="All">All</option>
-        </select>
+        <form action="filter.php" method="post">
+          <select class="authors-list" name="authors-list">
+            <option value="All">All</option>
+          </select>
+        </form>
+
       </nav>
     </header>
     <!-- main -->

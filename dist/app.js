@@ -10980,7 +10980,7 @@ return jQuery;
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
-  // printAuthors();
+  printAuthors();
   $.ajax({
     'url': 'http://localhost/php-ajax-dischi/server.php',
     'method': 'GET',
@@ -11007,6 +11007,29 @@ function printData(data) {
     var html = template(context);
     $('.card-ctr').append(html);
   }
+} // funzione per stampare options
+
+
+function printAuthors() {
+  $.ajax({
+    'url': 'http://localhost/php-ajax-dischi/dischi-author-filtered.php',
+    'method': 'GET',
+    'success': function success(risposta) {
+      var source = $("#author-template").html();
+      var template = Handlebars.compile(source);
+
+      for (var i = 0; i < risposta.length; i++) {
+        var context = {
+          author: risposta[i]
+        };
+        var html = template(context);
+        $('.authors-list').append(html);
+      }
+    },
+    'error': function error() {
+      alert('Errore');
+    }
+  });
 }
 
 /***/ }),
