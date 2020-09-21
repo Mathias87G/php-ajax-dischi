@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,9 @@
     <header>
       <nav>
         <img id="logo" src="img/logo.png" alt="spotify logo">
+        <select class="authors-list">
+          <option value="All">All</option>
+        </select>
       </nav>
     </header>
     <!-- main -->
@@ -34,6 +37,11 @@
         </div>
       </div>
     </script>
+
+    <script id="author-template" type="text/x-handlebars-template">
+      <option value="{{author}}">{{author}}</option>
+    </script>
+
 
     <script src="dist/app.js" charset="utf-8"></script>
   </body>
