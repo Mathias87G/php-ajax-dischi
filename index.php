@@ -16,12 +16,9 @@
     <header>
       <nav>
         <img id="logo" src="img/logo.png" alt="spotify logo">
-        <form action="filter.php" method="post">
           <select class="authors-list" name="authors-list">
             <option value="All">All</option>
           </select>
-        </form>
-
       </nav>
     </header>
     <!-- main -->
@@ -40,7 +37,7 @@
         </div>
       </div>
     </script>
-
+    <!-- handlebars per option select -->
     <script id="author-template" type="text/x-handlebars-template">
       <option value="{{author}}">{{author}}</option>
     </script>

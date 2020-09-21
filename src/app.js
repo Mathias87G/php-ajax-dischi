@@ -3,6 +3,28 @@ let $ = require('jquery');
 
 $(document).ready(function(){
   printAuthors();
+  $('.authors-list').on('change', function(){
+    var select = $('.authors-list').val().toString();
+    console.log(select);
+    $.ajax(
+      {
+        'url': 'http://localhost/php-ajax-dischi/server.php',
+        'method': 'GET',
+        'data': {
+          'author': select
+        },
+        'success': function(risposta){
+          $('.card-ctr').empty();
+          printData(risposta);
+        }
+      }
+    )
+  }),
+  allData();
+});
+
+// funzione AllData
+function allData(){
   $.ajax(
     {
       'url': 'http://localhost/php-ajax-dischi/server.php',
@@ -15,7 +37,7 @@ $(document).ready(function(){
       }
     }
   );
-});
+}
 
 // Funzione printdata
 function printData(data){

@@ -10981,6 +10981,24 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 $(document).ready(function () {
   printAuthors();
+  $('.authors-list').on('change', function () {
+    var select = $('.authors-list').val().toString();
+    console.log(select);
+    $.ajax({
+      'url': 'http://localhost/php-ajax-dischi/server.php',
+      'method': 'GET',
+      'data': {
+        'author': select
+      },
+      'success': function success(risposta) {
+        $('.card-ctr').empty();
+        printData(risposta);
+      }
+    });
+  }), allData();
+}); // funzione AllData
+
+function allData() {
   $.ajax({
     'url': 'http://localhost/php-ajax-dischi/server.php',
     'method': 'GET',
@@ -10991,7 +11009,8 @@ $(document).ready(function () {
       alert('Errore');
     }
   });
-}); // Funzione printdata
+} // Funzione printdata
+
 
 function printData(data) {
   var source = $("#entry-template").html();

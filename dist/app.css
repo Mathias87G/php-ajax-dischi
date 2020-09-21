@@ -26,7 +26,13 @@ nav {
   height: 60px;
 }
 
+.authors-list {
+  outline: none;
+  border: none;
+}
+
 main {
+  min-height: 100vh;
   height: 100%;
   background-color: #252526;
   padding-top: 70px;
